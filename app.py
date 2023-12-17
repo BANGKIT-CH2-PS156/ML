@@ -8,14 +8,6 @@ import numpy as np
 from io import BytesIO
 
 app = Flask(__name__)
-#config extention allow
-app.config["ALLOWED_EXTENTIONS"] = set(["png","jpg","jpeg"])
-app.config["UPLOAD_FOLDER"] = "static/uploads/"
-
-#function to check file we get
-def allowed_file(filename):
-    return "." in filename and \
-        filename.split(".", 1)[1] in app.config["ALLOWED_EXTENTIONS"]
 
 def map_class(prediction):
     if prediction < 0.5:
